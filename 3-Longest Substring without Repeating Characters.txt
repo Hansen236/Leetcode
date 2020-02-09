@@ -1,0 +1,21 @@
+//求解最长的、没有重复字母的子串长度
+
+int length=s.length();
+Set<Character> set=HashSet<>();
+int i=0;
+int j=0;
+int result=0;
+
+while(i<length && j<length) {
+if(!set.contains(s.charAt(j)) {
+    set.add(s.charAt(j));
+    j++;
+    result=Math.max(result,j-i);
+    }
+else {
+   set.remove(s.charAt(i));//移除原来子串初始位置，后一位开始
+   i++;
+   }
+}
+return result;
+

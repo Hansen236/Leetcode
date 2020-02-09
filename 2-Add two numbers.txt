@@ -1,0 +1,18 @@
+//给定两个数字链表，按位相加成新链表并输出
+
+int extra=0;//进位数
+ListNode emptyNode=new ListNode(0);
+ListNode currentNode=new ListNode(0);
+ListNode result=currentNode;
+
+while(emptyNode!=l1 && emptyNode!=l2) {
+    int sum=l1.val+l2.val+extra;
+    extra=sum/10;
+    currentNode=(currentNode.next=new ListNode(sum%=10));
+    l1=l1.next==null?emptyNode:l1.next;
+    l2=l2.next==null?emptyNode:l2.next;
+}
+   if(extra!=0) currentNode.next=new ListNode(extra);
+   return result.next;
+   
+    
