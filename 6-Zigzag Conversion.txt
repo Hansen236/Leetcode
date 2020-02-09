@@ -1,0 +1,16 @@
+//给定字符串s和行数numRows，返回Z字打印后的字符串
+
+int length=s.length();
+if(s==null || length<numRows) return s;
+StringBuffer[] str=new StringBuffer[numRows];
+for(int i=0;i<numRows;i++) str[i]=new StringBuffer();
+
+char[] c=s.toCharArray();
+int index=0;
+while(index<length) {
+     for(int i=0;i<numRows && index<length;i++) str[i].append(c[index++]);
+     for(int i=numRows-2;i>0 && index<length;i--) str[i].append(c[index++]);
+}
+
+for(int i=1;i<numRows;i++) str[0].append(str[i]);
+return str[0].toString();
