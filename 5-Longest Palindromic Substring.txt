@@ -1,0 +1,27 @@
+//给定字符串s，找到最长的回文子串
+//s最长1000
+//C++
+
+int length=s.size();
+int start=0;
+int maxLength=0;
+if(length<2) return s;
+
+for(int i=0;i<length-1;i++) {
+     helper(s,i,i,start,maxLength);
+     helper(s,i,i+1,start,maxLength);
+     }
+return s.substr(start,maxLength);
+}
+
+private:
+     void helper(string s,int left,int right,int& start,int& maxLength) {
+         while(left>=0 && right<s.size() && s[left]==s[right]) {
+            left--;
+            right++;
+         }
+         if(maxLength<right-left-1) {
+              start=left+1;
+              maxLength=right-left-1;
+         }
+     }           
