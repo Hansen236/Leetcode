@@ -1,0 +1,13 @@
+//判断回文数字x
+int num=0;
+int temp=x;
+int rest=0;
+
+if(x<0) return false;
+while(temp!=0) {
+   rest=x%10;
+   num=10*num+rest;
+   temp/=10;
+}
+if(x==num) return true;
+else return false;
